@@ -3,6 +3,10 @@ $ ->
   cicadaAudioEl = $cicadaAudio[0]
   $cicadaSourceButtons = $(".js-cicada-source")
 
+  $facts = $(".fact")
+  randomFactIndex = parseInt(Math.random() * $facts.length, 0)
+  $($facts[randomFactIndex]).css("display", "block")
+
   $(".js-cicada-source").on "click", (ev) ->
     $target = $(ev.currentTarget)
     src = $target.data("track")
