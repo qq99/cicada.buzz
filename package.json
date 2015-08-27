@@ -19,6 +19,7 @@
   },
   "scripts": {
     "serve": "gulp --require coffee-script/register serve",
+    "nginx": "nginx -c $PWD/nginx.conf",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
