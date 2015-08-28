@@ -37,6 +37,5 @@ $ ->
 
   # fun fact rotation
   window.factInterval = setInterval ->
-    console.log 'interval'
     showRandomFact()
   , 15000
