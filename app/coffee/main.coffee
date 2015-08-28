@@ -3,10 +3,16 @@ $ ->
   cicadaAudioEl = $cicadaAudio[0]
   $cicadaSourceButtons = $(".js-cicada-source")
 
-  $facts = $(".fact")
-  randomFactIndex = parseInt(Math.random() * $facts.length, 0)
-  $($facts[randomFactIndex]).css("display", "block")
+  # random facts:
+  showRandomFact = ->
+    $facts = $(".fact:not(:visible)")
+    randomFactIndex = parseInt(Math.random() * $facts.length, 0)
+    $(".fact").css("display", "none")
+    $($facts[randomFactIndex]).css("display", "block")
 
+  showRandomFact()
+
+  # specific play button
   $(".js-cicada-source").on "click", (ev) ->
     $target = $(ev.currentTarget)
     src = $target.data("track")
@@ -20,3 +26,17 @@ $ ->
       cicadaAudioEl.play()
     else
       cicadaAudioEl.pause()
+
+  # shuffle button
+  $shuffleButton = $(".js-cicada-shuffle")
+  $shuffleButton.on "click", (ev) ->
+    $target = $(ev.currentTarget)
+    $inactiveCicadaSources = $(".js-cicada-source:not(.active)")
+    randomButtonIndex = parseInt(Math.random() * $inactiveCicadaSources.length, 0)
+    $($inactiveCicadaSources[randomButtonIndex]).trigger("click")
+
+  # fun fact rotation
+  window.factInterval = setInterval ->
+    console.log 'interval'
+    showRandomFact()
+  , 15000

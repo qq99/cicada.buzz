@@ -36,15 +36,29 @@ section.main {
 }
 section.explanation {
   width: 40em;
-  font-size: 1.2em;
-  padding: 2em 1em;
+  font-size: 1em;
+  padding: 0 1em;
   max-width: 100%;
-  margin: auto;
+  margin: 4em auto;
   p {
     line-height: 1.75em;
   }
   h1 {
-    font-size: 1.2em;
+    font-size: 1.5em;
+    font-style: italic;
+  }
+  h1, h2, h3, h4, h5 {
+    font-weight: 200;
+  }
+  .btn {
+    display: block;
+    border: 1px solid black;
+    color: black;
+    background: #efefef;
+    margin-bottom: 0.5em;
+    &.active {
+      background: #dadada;
+    }
   }
 }
 
@@ -147,23 +161,9 @@ footer {
   }
 }
 
-.segmented-group {
-  flex: 0 0;
-  position: relative;
-  text-align: center;
-}
-.segmented-group__options {
-  display: flex;
-  justify-content: center;
-  > * {
-    margin: 0 0.5em;
-  }
-}
-
 .btn {
   cursor: pointer;
   color: white;
-  width: 8em;
   border-radius: 3px;
   outline: 0;
   border: 0;
